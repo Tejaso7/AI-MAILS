@@ -10,7 +10,6 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Arial', sans-serif;
       background: #f4f6fc;
@@ -18,7 +17,6 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-
     header {
       position: relative;
       height: 100vh;
@@ -28,21 +26,18 @@
       text-align: center;
       overflow: hidden;
     }
-
     header h1 {
       font-size: 4rem;
       color: #fff;
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
       z-index: 2;
     }
-
     header p {
       font-size: 1.5rem;
       color: #fff;
       margin-top: 1rem;
       z-index: 2;
     }
-
     .background-particles {
       position: absolute;
       top: 0;
@@ -53,14 +48,12 @@
       z-index: 1;
       overflow: hidden;
     }
-
     .particle {
       position: absolute;
       background: rgba(255, 255, 255, 0.5);
       border-radius: 50%;
       animation: float 10s infinite ease-in-out;
     }
-
     @keyframes float {
       0% {
         transform: translateY(0) translateX(0);
@@ -72,7 +65,6 @@
         transform: translateY(0) translateX(0);
       }
     }
-
     .neumorphism {
       background: #e0e5ec;
       box-shadow: 9px 9px 18px #c8c8c8, -9px -9px 18px #ffffff;
@@ -80,29 +72,24 @@
       padding: 20px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
     .neumorphism:hover {
       transform: scale(1.05);
       box-shadow: 12px 12px 24px #c8c8c8, -12px -12px 24px #ffffff;
     }
-
     section {
       padding: 60px 20px;
       text-align: center;
     }
-
     section h2 {
       font-size: 2.5rem;
       margin-bottom: 20px;
     }
-
     .pricing-card {
       display: inline-block;
       width: 300px;
       margin: 20px;
       vertical-align: top;
     }
-
     .cta-button {
       display: inline-block;
       padding: 10px 20px;
@@ -112,36 +99,30 @@
       border-radius: 10px;
       transition: background 0.3s ease;
     }
-
     .cta-button:hover {
       background: #5a7de2;
     }
-
     footer {
       background: #333;
       color: #fff;
       text-align: center;
       padding: 20px;
     }
-
     .icon {
       width: 50px;
       height: 50px;
       margin-bottom: 10px;
     }
-
     .gif-container img {
       max-width: 100%;
       height: auto;
       border-radius: 10px;
     }
-
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
-
     .feature-card {
       background: #e0e5ec;
       box-shadow: 9px 9px 18px #c8c8c8, -9px -9px 18px #ffffff;
@@ -150,12 +131,10 @@
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
     .feature-card:hover {
       transform: scale(1.05);
       box-shadow: 12px 12px 24px #c8c8c8, -12px -12px 24px #ffffff;
     }
-
     .proton-inspired {
       background: #fff;
       color: #333;
@@ -165,40 +144,32 @@
       margin: 20px auto;
       max-width: 800px;
     }
-
     .proton-inspired h2 {
       font-size: 2rem;
       margin-bottom: 15px;
     }
-
     .proton-inspired p {
       font-size: 1rem;
       margin-bottom: 15px;
     }
-
     .proton-inspired a {
       color: #6e8efb;
       text-decoration: none;
       font-weight: bold;
     }
-
     .proton-inspired a:hover {
       text-decoration: underline;
     }
-
     @media (max-width: 768px) {
       header h1 {
         font-size: 3rem;
       }
-
       header p {
         font-size: 1.2rem;
       }
-
       section h2 {
         font-size: 2rem;
       }
-
       .pricing-card {
         width: 100%;
       }
@@ -232,22 +203,30 @@
     <h2>Key Features</h2>
     <div class="feature-grid">
       <div class="feature-card">
-        <img src="https://i.imgur.com/4yLrMzS.png" alt="Targeting Icon" class="icon">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6e8efb">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
         <h3>Precision Targeting</h3>
         <p>Our AI uses datasets to identify and target specific roles, industries, and locations.</p>
       </div>
       <div class="feature-card">
-        <img src="https://i.imgur.com/7Q8kOqR.png" alt="Automation Icon" class="icon">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6e8efb">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+        </svg>
         <h3>Automated Campaigns</h3>
         <p>Set up automated email sequences with personalized follow-ups for maximum engagement.</p>
       </div>
       <div class="feature-card">
-        <img src="https://i.imgur.com/8UJmWxP.png" alt="Analytics Icon" class="icon">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6e8efb">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+        </svg>
         <h3>Performance Analytics</h3>
         <p>Track open rates, click-through rates, and conversions with detailed reports.</p>
       </div>
       <div class="feature-card">
-        <img src="https://i.imgur.com/9wZJ5Kd.png" alt="Support Icon" class="icon">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6e8efb">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+        </svg>
         <h3>Dedicated Support</h3>
         <p>Our team is available 24/7 to assist you with any queries or issues.</p>
       </div>
@@ -257,21 +236,27 @@
   <section>
     <h2>Pricing Plans</h2>
     <div class="pricing-card neumorphism">
-      <img src="https://i.imgur.com/4yLrMzS.png" alt="Starter Icon" class="icon">
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6e8efb">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+      </svg>
       <h3>Starter Plan</h3>
       <p>₹500 for 100 emails</p>
       <p>Target CEOs/CTOs of a specific industry and location.</p>
       <a href="#" class="cta-button">Get Started</a>
     </div>
     <div class="pricing-card neumorphism">
-      <img src="https://i.imgur.com/7Q8kOqR.png" alt="Pro Icon" class="icon">
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6e8efb">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+      </svg>
       <h3>Pro Plan</h3>
       <p>₹1500 for 500 emails</p>
       <p>Advanced targeting options and priority support.</p>
       <a href="#" class="cta-button">Get Started</a>
     </div>
     <div class="pricing-card neumorphism">
-      <img src="https://i.imgur.com/8UJmWxP.png" alt="Enterprise Icon" class="icon">
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6e8efb">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+      </svg>
       <h3>Enterprise Plan</h3>
       <p>Custom packages for large-scale campaigns.</p>
       <p>Contact us for a tailored solution.</p>
@@ -285,6 +270,20 @@
       <h2>Privacy and Transparency</h2>
       <p>We prioritize your privacy and ensure transparency in all our processes. Your data is safe with us, and we provide clear insights into how your campaigns perform.</p>
       <p><a href="policy.html">Read Our Privacy Policy</a></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Your Career Growth Starts Here</h2>
+    <div class="proton-inspired">
+      <p>Looking to land your dream job or ace interviews? At TS Enterprises, we offer expert career guidance and AI-driven tools to help you achieve success.</p>
+      <p>Book a free call to discuss your career growth and explore how our strategies can give you a competitive edge. This might also help your friends or relatives—feel free to share!</p>
+      <p>Reply here or contact us at <strong>+91 7447679060</strong> to schedule your way towards a new job.</p>
+      <p>Best regards,<br>
+      <strong>Tejas Sawant</strong><br>
+      Co-Founder & CTO, TS Enterprises<br><br>
+      <strong>Tushar Sawant</strong><br>
+      Founder & CEO, TS Enterprises</p>
     </div>
   </section>
 
