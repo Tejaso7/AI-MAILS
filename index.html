@@ -13,7 +13,7 @@
 
     body {
       font-family: 'Arial', sans-serif;
-      background: #e0e5ec;
+      background: #f4f6fc;
       color: #333;
       line-height: 1.6;
       overflow-x: hidden;
@@ -103,16 +103,6 @@
       vertical-align: top;
     }
 
-    .pricing-card h3 {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-    }
-
-    .pricing-card p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-
     .cta-button {
       display: inline-block;
       padding: 10px 20px;
@@ -132,6 +122,68 @@
       color: #fff;
       text-align: center;
       padding: 20px;
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+
+    .gif-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: #e0e5ec;
+      box-shadow: 9px 9px 18px #c8c8c8, -9px -9px 18px #ffffff;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: scale(1.05);
+      box-shadow: 12px 12px 24px #c8c8c8, -12px -12px 24px #ffffff;
+    }
+
+    .proton-inspired {
+      background: #fff;
+      color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin: 20px auto;
+      max-width: 800px;
+    }
+
+    .proton-inspired h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .proton-inspired p {
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    .proton-inspired a {
+      color: #6e8efb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .proton-inspired a:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 768px) {
@@ -169,39 +221,70 @@
 
   <section>
     <h2>How It Works</h2>
-    <div class="neumorphism">
-      <p>We leverage advanced datasets and Large Language Models (LLMs) integrated into a smart funnel system to target decision-makers like CEOs, CTOs, and HR Managers. Our AI-driven approach ensures your message reaches the right audience in your desired industry and location.</p>
-      <p>Whether you're finding it hard to switch industries or struggling to connect with key professionals, our service is designed to bridge the gap for you.</p>
+    <div class="proton-inspired">
+      <h2>Secure and Efficient Communication</h2>
+      <p>Our AI-driven platform ensures your cold emails are delivered securely and efficiently. We use advanced encryption and data protection protocols to safeguard your information.</p>
+      <p><a href="features.html">Learn More About Our Security Features</a></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Key Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <img src="https://i.imgur.com/4yLrMzS.png" alt="Targeting Icon" class="icon">
+        <h3>Precision Targeting</h3>
+        <p>Our AI uses datasets to identify and target specific roles, industries, and locations.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://i.imgur.com/7Q8kOqR.png" alt="Automation Icon" class="icon">
+        <h3>Automated Campaigns</h3>
+        <p>Set up automated email sequences with personalized follow-ups for maximum engagement.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://i.imgur.com/8UJmWxP.png" alt="Analytics Icon" class="icon">
+        <h3>Performance Analytics</h3>
+        <p>Track open rates, click-through rates, and conversions with detailed reports.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://i.imgur.com/9wZJ5Kd.png" alt="Support Icon" class="icon">
+        <h3>Dedicated Support</h3>
+        <p>Our team is available 24/7 to assist you with any queries or issues.</p>
+      </div>
     </div>
   </section>
 
   <section>
     <h2>Pricing Plans</h2>
     <div class="pricing-card neumorphism">
+      <img src="https://i.imgur.com/4yLrMzS.png" alt="Starter Icon" class="icon">
       <h3>Starter Plan</h3>
       <p>₹500 for 100 emails</p>
       <p>Target CEOs/CTOs of a specific industry and location.</p>
       <a href="#" class="cta-button">Get Started</a>
     </div>
     <div class="pricing-card neumorphism">
+      <img src="https://i.imgur.com/7Q8kOqR.png" alt="Pro Icon" class="icon">
       <h3>Pro Plan</h3>
       <p>₹1500 for 500 emails</p>
       <p>Advanced targeting options and priority support.</p>
       <a href="#" class="cta-button">Get Started</a>
     </div>
     <div class="pricing-card neumorphism">
+      <img src="https://i.imgur.com/8UJmWxP.png" alt="Enterprise Icon" class="icon">
       <h3>Enterprise Plan</h3>
       <p>Custom packages for large-scale campaigns.</p>
       <p>Contact us for a tailored solution.</p>
-      <a href="#" class="cta-button">Contact Us</a>
+      <a href="contact.html" class="cta-button">Contact Us</a>
     </div>
   </section>
 
   <section>
     <h2>Why Choose Us?</h2>
-    <div class="neumorphism">
-      <p>We use cutting-edge AI and machine learning to ensure your cold emails are personalized, relevant, and effective. If you don't see results, we offer a <strong>100% money-back guarantee</strong>.</p>
-      <p>Our dataset-driven targeting ensures you reach the right people at the right time, whether you're looking to hire, partner, or sell.</p>
+    <div class="proton-inspired">
+      <h2>Privacy and Transparency</h2>
+      <p>We prioritize your privacy and ensure transparency in all our processes. Your data is safe with us, and we provide clear insights into how your campaigns perform.</p>
+      <p><a href="policy.html">Read Our Privacy Policy</a></p>
     </div>
   </section>
 
@@ -225,4 +308,3 @@
   </script>
 </body>
 </html>
-```
