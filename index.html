@@ -3,342 +3,861 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Cold Mailing Service</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
+  <title>AI Cold Mailing & Job Placement Service</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
     body {
-      font-family: 'Arial', sans-serif;
-      background: #f0f0f0;
-      color: #333;
-      line-height: 1.6;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
     }
-    /* Navigation Bar */
-    nav {
-      background: rgba(255, 255, 255, 0.9);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
     }
-    nav .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #6e8efb;
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
-    nav .navbar-nav .nav-link {
-      color: #333;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-    nav .navbar-nav .nav-link:hover {
-      color: #6e8efb;
-    }
-    /* Header Section */
-    header {
-      background: linear-gradient(135deg, #6e8efb, #a777e3);
-      height: 100vh;
+    
+    .feature-icon {
+      width: 60px;
+      height: 60px;
       display: flex;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      color: #fff;
+      justify-content: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: white;
+      font-size: 24px;
+      margin-bottom: 20px;
     }
-    header h1 {
-      font-size: 3.5rem;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    }
-    header p {
-      font-size: 1.5rem;
-      margin-top: 1rem;
-    }
-    /* Neumorphism Design */
-    .neumorphism {
-      background: #f0f0f0;
-      border-radius: 20px;
-      box-shadow: 10px 10px 20px #d9d9d9, -10px -10px 20px #ffffff;
-      padding: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .neumorphism:hover {
-      transform: translateY(-5px);
-      box-shadow: 15px 15px 30px #d9d9d9, -15px -15px 30px #ffffff;
-    }
-    /* Sections */
-    section {
-      padding: 80px 0;
-      text-align: center;
-    }
-    section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 40px;
-      color: #333;
-    }
-    /* Features Section */
-    .feature-card {
-      background: #f0f0f0;
-      border-radius: 20px;
-      padding: 20px;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .feature-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 15px 15px 30px #d9d9d9, -15px -15px 30px #ffffff;
-    }
-    .feature-card .icon {
-      font-size: 2rem;
-      color: #6e8efb;
-      margin-bottom: 10px;
-    }
-    /* Pricing Section */
-    .pricing-card {
-      background: #f0f0f0;
-      border-radius: 20px;
-      padding: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+    
     .pricing-card:hover {
       transform: translateY(-10px);
-      box-shadow: 15px 15px 30px #d9d9d9, -15px -15px 30px #ffffff;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
-    .cta-button {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #6e8efb;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 10px;
-      transition: background 0.3s ease;
+    
+    .timeline-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 40px;
+      height: calc(100% - 40px);
+      width: 2px;
+      background-color: #e2e8f0;
     }
-    .cta-button:hover {
-      background: #5a7de2;
-    }
-    /* Why Choose Us Section */
-    .why-choose-us {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: left;
-    }
-    .why-choose-us h3 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      color: #333;
-    }
-    .why-choose-us p {
-      font-size: 1rem;
-      color: #666;
-      margin-bottom: 20px;
-    }
-    /* Career Section */
-    .career-section {
-      background: #fff;
-      padding: 40px 20px;
+    
+    .job-guarantee-badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+      color: white;
+      padding: 4px 12px;
       border-radius: 20px;
-      box-shadow: 10px 10px 20px #d9d9d9, -10px -10px 20px #ffffff;
-      max-width: 800px;
-      margin: 0 auto;
+      font-size: 12px;
+      font-weight: 600;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
-    .career-section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #333;
+    
+    .animated-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 50%, rgba(217, 70, 239, 0.1) 100%);
+      z-index: -1;
+      animation: gradient 15s ease infinite;
+      background-size: 400% 400%;
     }
-    .career-section p {
-      font-size: 1rem;
-      color: #666;
-      margin-bottom: 20px;
+    
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
-    .career-section a {
-      color: #6e8efb;
-      text-decoration: none;
-      font-weight: bold;
+    
+    .floating {
+      animation: floating 3s ease-in-out infinite;
     }
-    .career-section a:hover {
-      text-decoration: underline;
-    }
-    /* FAQ Section */
-    .faq-container {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: left;
-    }
-    .faq-item {
-      margin-bottom: 20px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 10px;
-    }
-    .faq-item h3 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      color: #333;
-    }
-    .faq-item p {
-      font-size: 1rem;
-      color: #666;
-    }
-    /* Footer */
-    footer {
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
+    
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-    <div class="container">
-      <a class="navbar-brand logo" href="#">AI Cold Mailing</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
-          <li class="nav-item"><a class="nav-link" href="#why-choose-us">Why Choose Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="#career">Career</a></li>
-          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-        </ul>
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 flex items-center">
+            <div class="h-8 w-8 rounded-full bg-indigo-500 flex items-center justify-center text-white font-bold">TS</div>
+            <span class="ml-2 text-xl font-bold bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">TalentSync</span>
+          </div>
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-center space-x-4">
+            <a href="#features" class="text-slate-700 hover:text-indigo-600 px-3 py-2 font-medium">Features</a>
+            <a href="#pricing" class="text-slate-700 hover:text-indigo-600 px-3 py-2 font-medium">Pricing</a>
+            <a href="#placement" class="text-slate-700 hover:text-indigo-600 px-3 py-2 font-medium">Job Guarantee</a>
+            <a href="#testimonials" class="text-slate-700 hover:text-indigo-600 px-3 py-2 font-medium">Success Stories</a>
+            <a href="#contact" class="text-slate-700 hover:text-indigo-600 px-3 py-2 font-medium">Contact</a>
+          </div>
+        </div>
+        <div class="md:hidden">
+          <button class="mobile-menu-button p-2 rounded-md text-slate-700 hover:text-indigo-600 focus:outline-none">
+            <i class="bi bi-list text-2xl"></i>
+          </button>
+        </div>
       </div>
     </div>
   </nav>
 
-  <!-- Header Section -->
-  <header>
-    <div class="container">
-      <h1>AI-Powered Cold Mailing</h1>
-      <p>Reach out to CEOs, CTOs, HR Managers, and more with precision and ease.</p>
-      <a href="#pricing" class="cta-button">Get Started</a>
+  <!-- Hero Section -->
+  <section class="relative pt-24 pb-12 md:pt-32 md:pb-20 gradient-bg text-white overflow-hidden">
+    <div class="animated-bg"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div class="z-10">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+            AI-Powered Outreach & <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-amber-400">Job Guarantee</span>
+          </h1>
+          <p class="text-lg md:text-xl text-slate-100 mb-8 max-w-2xl">
+            Revolutionize your hiring process with our AI-driven cold mailing service and secure top talent with our 100% job placement guarantee.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#pricing" class="bg-white text-indigo-600 hover:bg-slate-100 font-bold py-3 px-6 rounded-lg transition duration-300 text-center">
+              Get Started
+            </a>
+            <a href="#placement" class="bg-transparent border-2 border-white hover:bg-white/10 font-bold py-3 px-6 rounded-lg transition duration-300 text-center">
+              Learn About Placement
+            </a>
+          </div>
+        </div>
+        <div class="relative hidden md:block">
+          <div class="relative floating">
+            <div class="absolute -top-6 -left-6 w-64 h-64 rounded-full bg-purple-500 opacity-20"></div>
+            <div class="absolute -bottom-6 -right-6 w-64 h-64 rounded-full bg-pink-500 opacity-20"></div>
+            <div class="relative glass-card p-6 rounded-2xl shadow-xl">
+              <div class="bg-white p-6 rounded-xl shadow-lg">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600">
+                    <i class="bi bi-envelope"></i>
+                  </div>
+                  <div class="ml-3">
+                    <h4 class="font-bold text-slate-800">AI-Generated Email</h4>
+                    <p class="text-xs text-slate-500">To: hr@techcompany.com</p>
+                  </div>
+                </div>
+                <div class="text-sm text-slate-600 mb-4">
+                  <p>Hi [Recipient's Name],</p>
+                  <p class="my-2">I came across [Company Name] and was impressed by your work in [specific detail]. We specialize in [your value proposition] that could help you achieve [specific benefit].</p>
+                  <p>Would you be open to a quick call next week to explore potential synergies?</p>
+                  <p class="mt-2">Best regards,<br>[Your Name]</p>
+                </div>
+                <div class="flex justify-between items-center text-xs">
+                  <span class="text-slate-500">AI-Powered by TalentSync</span>
+                  <button class="text-indigo-600 font-medium">View Analytics →</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </header>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="p-6">
+          <div class="text-4xl font-bold text-indigo-600 mb-2">10K+</div>
+          <div class="text-slate-500">Successful Placements</div>
+        </div>
+        <div class="p-6">
+          <div class="text-4xl font-bold text-purple-600 mb-2">95%</div>
+          <div class="text-slate-500">Response Rate</div>
+        </div>
+        <div class="p-6">
+          <div class="text-4xl font-bold text-pink-600 mb-2">300+</div>
+          <div class="text-slate-500">Top Companies</div>
+        </div>
+        <div class="p-6">
+          <div class="text-4xl font-bold text-amber-500 mb-2">100%</div>
+          <div class="text-slate-500">Job Guarantee</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Features Section -->
-<section id="features" class="container">
-  <h2>Key Features</h2>
-  <div class="row">
-    <div class="col-md-3 mb-4 d-flex">
-      <div class="feature-card neumorphism flex-fill d-flex flex-column">
-        <i class="bi bi-geo-alt icon"></i>
-        <h3>Precision Targeting</h3>
-        <p class="flex-grow-1">Our AI uses datasets to identify and target specific roles, industries, and locations.</p>
+  <section id="features" class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-slate-800 mb-4">Powerful Features</h2>
+        <p class="text-lg text-slate-600 max-w-3xl mx-auto">Our comprehensive platform combines AI-powered outreach with guaranteed placement solutions</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+          <div class="feature-icon">
+            <i class="bi bi-robot"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">AI-Powered Outreach</h3>
+          <p class="text-slate-600">Our advanced AI crafts personalized emails that get responses, analyzing recipient data to optimize messaging.</p>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+          <div class="feature-icon">
+            <i class="bi bi-bullseye"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">Precision Targeting</h3>
+          <p class="text-slate-600">Reach exactly the right decision-makers with our comprehensive database of 10M+ professionals.</p>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+          <div class="feature-icon">
+            <i class="bi bi-graph-up"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">Performance Analytics</h3>
+          <p class="text-slate-600">Real-time tracking of open rates, responses, and conversions with actionable insights.</p>
+        </div>
+        
+        <!-- Feature 4 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+          <div class="feature-icon">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">Job Guarantee Program</h3>
+          <p class="text-slate-600">Our 100% placement guarantee ensures candidates find their dream roles or we provide refunds.</p>
+        </div>
+        
+        <!-- Feature 5 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+          <div class="feature-icon">
+            <i class="bi bi-people"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">Interview Preparation</h3>
+          <p class="text-slate-600">Comprehensive coaching including mock interviews, resume optimization, and salary negotiation.</p>
+        </div>
+        
+        <!-- Feature 6 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+          <div class="feature-icon">
+            <i class="bi bi-headset"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">Dedicated Support</h3>
+          <p class="text-slate-600">24/7 access to our team of career experts and outreach specialists.</p>
+        </div>
       </div>
     </div>
-    <div class="col-md-3 mb-4 d-flex">
-      <div class="feature-card neumorphism flex-fill d-flex flex-column">
-        <i class="bi bi-envelope icon"></i>
-        <h3>Automated Campaigns</h3>
-        <p class="flex-grow-1">Set up automated email sequences with personalized follow-ups for maximum engagement.</p>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-slate-800 mb-4">How It Works</h2>
+        <p class="text-lg text-slate-600 max-w-3xl mx-auto">Simple steps to transform your outreach and hiring process</p>
+      </div>
+      
+      <div class="relative">
+        <!-- Timeline -->
+        <div class="space-y-8">
+          <!-- Step 1 -->
+          <div class="timeline-item relative pl-16">
+            <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 border-4 border-white shadow">
+              <span class="font-bold">1</span>
+            </div>
+            <div class="bg-slate-50 p-6 rounded-xl">
+              <h3 class="text-xl font-bold text-slate-800 mb-2">Define Your Needs</h3>
+              <p class="text-slate-600">Tell us about your hiring requirements or career goals through our simple onboarding process.</p>
+            </div>
+          </div>
+          
+          <!-- Step 2 -->
+          <div class="timeline-item relative pl-16">
+            <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 border-4 border-white shadow">
+              <span class="font-bold">2</span>
+            </div>
+            <div class="bg-slate-50 p-6 rounded-xl">
+              <h3 class="text-xl font-bold text-slate-800 mb-2">AI Campaign Setup</h3>
+              <p class="text-slate-600">Our system creates personalized outreach campaigns targeting your ideal candidates or companies.</p>
+            </div>
+          </div>
+          
+          <!-- Step 3 -->
+          <div class="timeline-item relative pl-16">
+            <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 border-4 border-white shadow">
+              <span class="font-bold">3</span>
+            </div>
+            <div class="bg-slate-50 p-6 rounded-xl">
+              <h3 class="text-xl font-bold text-slate-800 mb-2">Engagement & Interviews</h3>
+              <p class="text-slate-600">We manage responses, schedule interviews, and provide comprehensive preparation.</p>
+            </div>
+          </div>
+          
+          <!-- Step 4 -->
+          <div class="timeline-item relative pl-16">
+            <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 border-4 border-white shadow">
+              <span class="font-bold">4</span>
+            </div>
+            <div class="bg-slate-50 p-6 rounded-xl">
+              <h3 class="text-xl font-bold text-slate-800 mb-2">Successful Placement</h3>
+              <p class="text-slate-600">Celebrate your new hire or dream job with our ongoing support during onboarding.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-md-3 mb-4 d-flex">
-      <div class="feature-card neumorphism flex-fill d-flex flex-column">
-        <i class="bi bi-bar-chart icon"></i>
-        <h3>Performance Analytics</h3>
-        <p class="flex-grow-1">Track open rates, click-through rates, and conversions with detailed reports.</p>
-      </div>
-    </div>
-    <div class="col-md-3 mb-4 d-flex">
-      <div class="feature-card neumorphism flex-fill d-flex flex-column">
-        <i class="bi bi-headset icon"></i>
-        <h3>Dedicated Support</h3>
-        <p class="flex-grow-1">Our team is available 24/7 to assist you with any queries or issues.</p>
-      </div>
-    </div>
-  </div>
-</section>
-  
+  </section>
 
   <!-- Pricing Section -->
-<section id="pricing" class="container">
-  <h2>Pricing Plans</h2>
-  <div class="row">
-    <div class="col-md-4 mb-4 d-flex">
-      <div class="pricing-card neumorphism flex-fill d-flex flex-column">
-        <h3>Starter Plan</h3>
-        <p>₹500 for 100 emails</p>
-        <p class="flex-grow-1">Target CEOs/CTOs of a specific industry and location.</p>
-        <a href="#" class="cta-button">Get Started</a>
+  <section id="pricing" class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-slate-800 mb-4">Flexible Pricing</h2>
+        <p class="text-lg text-slate-600 max-w-3xl mx-auto">Choose the plan that fits your needs</p>
       </div>
-    </div>
-    <div class="col-md-4 mb-4 d-flex">
-      <div class="pricing-card neumorphism flex-fill d-flex flex-column">
-        <h3>Pro Plan</h3>
-        <p>₹1500 for 500 emails</p>
-        <p class="flex-grow-1">Advanced targeting options and priority support.</p>
-        <a href="#" class="cta-button">Get Started</a>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Starter Plan -->
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden pricing-card transition duration-300 relative">
+          <div class="p-8">
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Starter</h3>
+            <p class="text-slate-600 mb-6">Perfect for small businesses and individual job seekers</p>
+            <div class="mb-6">
+              <span class="text-4xl font-bold text-slate-800">₹500</span>
+              <span class="text-slate-500">/month</span>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center text-slate-600">
+                <i class="bi bi-check-circle-fill text-green-500 mr-2"></i>
+                <span>100 AI-generated emails</span>
+              </li>
+              <li class="flex items-center text-slate-600">
+                <i class="bi bi-check-circle-fill text-green-500 mr-2"></i>
+                <span>Basic targeting</span>
+              </li>
+              <li class="flex items-center text-slate-600">
+                <i class="bi bi-check-circle-fill text-green-500 mr-2"></i>
+                <span>Response tracking</span>
+              </li>
+              <li class="flex items-center text-slate-400">
+                <i class="bi bi-x-circle-fill text-slate-300 mr-2"></i>
+                <span>Job guarantee</span>
+              </li>
+            </ul>
+            <button class="w-full py-3 px-6 border-2 border-indigo-600 text-indigo-600 font-bold rounded-lg hover:bg-indigo-600 hover:text-white transition duration-300">
+              Get Started
+            </button>
+          </div>
+        </div>
+        
+        <!-- Pro Plan -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden pricing-card transition duration-300 relative">
+          <div class="job-guarantee-badge">Popular</div>
+          <div class="p-8">
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Professional</h3>
+            <p class="text-slate-600 mb-6">Ideal for growing businesses and serious career changers</p>
+            <div class="mb-6">
+              <span class="text-4xl font-bold text-slate-800">₹1,500</span>
+              <span class="text-slate-500">/month</span>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center text-slate-600">
+                <i class="bi bi-check-circle-fill text-green-500 mr-2"></i>
+                <span>500 AI-generated emails</span>
+              </li>
+              <li class="flex items-center text-slate-600">
+                <i class="bi bi-check-circle-fill text-green-500 mr-2"></i>
+                <span>Advanced targeting</span>
+              </li>
+              <li class="flex items-center text-slate-600">
+                <i class="bi bi-check-circle-fill text-green-500 mr-2"></i>
+                <span>Detailed analytics</span>
+              </li>
+              <li class="flex items-center text-slate-600">
+                <i class="bi bi-check-circle-fill text-green-500 mr-2"></i>
+                <span>Basic job guarantee</span>
+              </li>
+            </ul>
+            <button class="w-full py-3 px-6 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700 transition duration-300">
+              Get Started
+            </button>
+          </div>
+        </div>
+        
+        <!-- Enterprise Plan -->
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden pricing-card transition duration-300 relative">
+          <div class="p-8">
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Enterprise</h3>
+            <p class="text-slate-600 mb-6">For large-scale hiring needs and executive placements</p>
+            <div class="mb-6">
+              <span class="text-4xl font-bold text-slate-800">Custom</span>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center text-slate-600">
+                <i class="bi bi-check-circle-fill text-green-500 mr-2"></i>
+                <span>Unlimited emails</span>
+              </li>
+              <li class="flex items-center text-slate-600">
+                <i class="bi bi-check-circle-fill text-green-500 mr-2"></i>
+                <span>Executive targeting</span>
+              </li>
+              <li class="flex items-center text-slate-600">
+                <i class="bi bi-check-circle-fill text-green-500 mr-2"></i>
+                <span>Premium analytics</span>
+              </li>
+              <li class="flex items-center text-slate-600">
+                <i class="bi bi-check-circle-fill text-green-500 mr-2"></i>
+                <span>Premium job guarantee</span>
+              </li>
+            </ul>
+            <button class="w-full py-3 px-6 border-2 border-indigo-600 text-indigo-600 font-bold rounded-lg hover:bg-indigo-600 hover:text-white transition duration-300">
+              Contact Sales
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="col-md-4 mb-4 d-flex">
-      <div class="pricing-card neumorphism flex-fill d-flex flex-column">
-        <h3>Enterprise Plan</h3>
-        <p>Custom packages for large-scale campaigns.</p>
-        <p class="flex-grow-1">Contact us for a tailored solution.</p>
-        <a href="contact.html" class="cta-button">Contact Us</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- Why Choose Us Section -->
-  <section id="why-choose-us" class="container">
-    <h2>Why Choose Us?</h2>
-    <div class="why-choose-us neumorphism p-4">
-      <h3>AI-Powered Precision</h3>
-      <p>Our advanced AI algorithms ensure your emails reach the right people at the right time, maximizing your outreach efficiency.</p>
-      <h3>Secure and Reliable</h3>
-      <p>We use state-of-the-art encryption and data protection protocols to keep your information safe and secure.</p>
-      <h3>Proven Results</h3>
-      <p>Our clients have seen a 300% increase in response rates using our AI-powered cold mailing service.</p>
     </div>
   </section>
 
-  <!-- Career Section -->
-  <section id="career" class="container">
-    <div class="career-section neumorphism p-4">
-      <h2>Your Career Growth Starts Here</h2>
-      <p>Looking to land your dream job or ace interviews? At TS Enterprises, we offer expert career guidance and AI-driven tools to help you achieve success.</p>
-      <p>Book a free call to discuss your career growth and explore how our strategies can give you a competitive edge. This might also help your friends or relatives—feel free to share!</p>
-      <p>Contact us at <strong>+91 7447679060</strong> to schedule your way towards a new job.</p>
-      <p>Best regards,<br>
-      <strong>Tejas Sawant</strong><br>
-      Co-Founder & CTO, TS Enterprises<br><br>
-      <strong>Tushar Sawant</strong><br>
-      Founder & CEO, TS Enterprises</p>
+  <!-- Job Guarantee Section -->
+  <section id="placement" class="py-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold mb-6">Our 100% Job Guarantee</h2>
+          <p class="text-lg mb-6 opacity-90">We're so confident in our placement process that we guarantee you'll land a job within 90 days or we'll refund your money.</p>
+          
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center">
+                  <i class="bi bi-check-lg"></i>
+                </div>
+              </div>
+              <div class="ml-3">
+                <h4 class="font-bold">Personalized Career Strategy</h4>
+                <p class="text-sm opacity-80">We analyze your skills and match you with ideal opportunities.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center">
+                  <i class="bi bi-check-lg"></i>
+                </div>
+              </div>
+              <div class="ml-3">
+                <h4 class="font-bold">Exclusive Access</h4>
+                <p class="text-sm opacity-80">Direct introductions to hiring managers at top companies.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center">
+                  <i class="bi bi-check-lg"></i>
+                </div>
+              </div>
+              <div class="ml-3">
+                <h4 class="font-bold">Interview Mastery</h4>
+                <p class="text-sm opacity-80">Comprehensive coaching to ace every interview stage.</p>
+              </div>
+            </div>
+          </div>
+          
+          <button class="bg-white text-indigo-600 hover:bg-slate-100 font-bold py-3 px-6 rounded-lg transition duration-300">
+            Learn More About Placement
+          </button>
+        </div>
+        
+        <div class="bg-white/10 backdrop-blur-md p-8 rounded-xl">
+          <h3 class="text-xl font-bold mb-4">Placement Success Timeline</h3>
+          
+          <div class="space-y-4">
+            <div class="flex">
+              <div class="flex-shrink-0 mr-4">
+                <div class="w-12 h-12 rounded-full bg-indigo-500 flex items-center justify-center font-bold">1</div>
+              </div>
+              <div>
+                <h4 class="font-bold">Week 1-2: Assessment</h4>
+                <p class="text-sm opacity-80">Skills evaluation and career path planning</p>
+              </div>
+            </div>
+            
+            <div class="flex">
+              <div class="flex-shrink-0 mr-4">
+                <div class="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center font-bold">2</div>
+              </div>
+              <div>
+                <h4 class="font-bold">Week 3-4: Preparation</h4>
+                <p class="text-sm opacity-80">Resume optimization and interview training</p>
+              </div>
+            </div>
+            
+            <div class="flex">
+              <div class="flex-shrink-0 mr-4">
+                <div class="w-12 h-12 rounded-full bg-pink-500 flex items-center justify-center font-bold">3</div>
+              </div>
+              <div>
+                <h4 class="font-bold">Week 5-8: Outreach</h4>
+                <p class="text-sm opacity-80">AI-powered applications and networking</p>
+              </div>
+            </div>
+            
+            <div class="flex">
+              <div class="flex-shrink-0 mr-4">
+                <div class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center font-bold">4</div>
+              </div>
+              <div>
+                <h4 class="font-bold">Week 9-12: Placement</h4>
+                <p class="text-sm opacity-80">Job offers and negotiation support</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- FAQ Section -->
-  <section id="faq" class="container">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-container">
-      <div class="faq-item">
-        <h3>How does AI cold mailing work?</h3>
-        <p>Our AI analyzes your target audience and crafts personalized emails to maximize engagement.</p>
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-slate-800 mb-4">Success Stories</h2>
+        <p class="text-lg text-slate-600 max-w-3xl mx-auto">Hear from our satisfied clients and placed candidates</p>
       </div>
-      <div class="faq-item">
-        <h3>Is my data secure?</h3>
-        <p>Yes, we use advanced encryption and data protection protocols to ensure your data is safe.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="bg-slate-50 p-8 rounded-xl">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold">AS</div>
+            <div class="ml-4">
+              <h4 class="font-bold text-slate-800">Aarav Sharma</h4>
+              <p class="text-sm text-slate-500">Placed at Google</p>
+            </div>
+          </div>
+          <p class="text-slate-600 italic">"TalentSync's AI emails got me interviews at 5 top tech companies. Their interview prep was so thorough that I had multiple offers to choose from!"</p>
+          <div class="mt-4 flex text-amber-400">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="bg-slate-50 p-8 rounded-xl">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold">PT</div>
+            <div class="ml-4">
+              <h4 class="font-bold text-slate-800">Priya Talwar</h4>
+              <p class="text-sm text-slate-500">HR Director, TechStart</p>
+            </div>
+          </div>
+          <p class="text-slate-600 italic">"We filled 15 critical positions in 2 months using TalentSync. The quality of candidates was exceptional and the AI targeting saved us countless hours."</p>
+          <div class="mt-4 flex text-amber-400">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+          </div>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="bg-slate-50 p-8 rounded-xl">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 font-bold">RK</div>
+            <div class="ml-4">
+              <h4 class="font-bold text-slate-800">Rahul Kapoor</h4>
+              <p class="text-sm text-slate-500">Placed at Amazon</p>
+            </div>
+          </div>
+          <p class="text-slate-600 italic">"After 6 months of job searching with no luck, TalentSync got me 3 interviews in my first week. I accepted an offer with a 40% salary increase!"</p>
+          <div class="mt-4 flex text-amber-400">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+          </div>
+        </div>
       </div>
-      <div class="faq-item">
-        <h3>Can I cancel my subscription?</h3>
-        <p>Yes, you can cancel your subscription at any time without any hidden fees.</p>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 gradient-bg text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold mb-6">Ready to Transform Your Hiring or Career?</h2>
+      <p class="text-xl mb-8 max-w-3xl mx-auto opacity-90">Join thousands of businesses and professionals who've found success with TalentSync</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <button class="bg-white text-indigo-600 hover:bg-slate-100 font-bold py-3 px-8 rounded-lg transition duration-300">
+          Start Free Trial
+        </button>
+        <button class="bg-transparent border-2 border-white hover:bg-white/10 font-bold py-3 px-8 rounded-lg transition duration-300">
+          Book a Demo
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-3xl font-bold text-slate-800 mb-6">Get In Touch</h2>
+          <p class="text-slate-600 mb-8">Have questions about our services or want to learn more about our job guarantee program? Reach out to our team.</p>
+          
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600">
+                  <i class="bi bi-envelope"></i>
+                </div>
+              </div>
+              <div class="ml-4">
+                <h4 class="font-bold text-slate-800">Email Us</h4>
+                <p class="text-slate-600">contact@talentsync.ai</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600">
+                  <i class="bi bi-telephone"></i>
+                </div>
+              </div>
+              <div class="ml-4">
+                <h4 class="font-bold text-slate-800">Call Us</h4>
+                <p class="text-slate-600">+91 7447679060</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-600">
+                  <i class="bi bi-geo-alt"></i>
+                </div>
+              </div>
+              <div class="ml-4">
+                <h4 class="font-bold text-slate-800">Visit Us</h4>
+                <p class="text-slate-600">TS Enterprises, Mumbai, India</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-slate-50 p-8 rounded-xl">
+          <h3 class="text-xl font-bold text-slate-800 mb-6">Send Us a Message</h3>
+          <form>
+            <div class="mb-4">
+              <label for="name" class="block text-sm font-medium text-slate-700 mb-1">Name</label>
+              <input type="text" id="name" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+            
+            <div class="mb-4">
+              <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+              <input type="email" id="email" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+            
+            <div class="mb-4">
+              <label for="subject" class="block text-sm font-medium text-slate-700 mb-1">Subject</label>
+              <select id="subject" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                <option>General Inquiry</option>
+                <option>Job Guarantee Program</option>
+                <option>Enterprise Solutions</option>
+                <option>Partnerships</option>
+              </select>
+            </div>
+            
+            <div class="mb-4">
+              <label for="message" class="block text-sm font-medium text-slate-700 mb-1">Message</label>
+              <textarea id="message" rows="4" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+            </div>
+            
+            <button type="submit" class="w-full py-3 px-6 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700 transition duration-300">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-slate-800 mb-4">Meet The Founders</h2>
+        <p class="text-lg text-slate-600 max-w-3xl mx-auto">The visionaries behind TalentSync's success</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Founder 1 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm text-center">
+          <div class="w-32 h-32 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mb-6 flex items-center justify-center text-white text-4xl font-bold">TS</div>
+          <h3 class="text-xl font-bold text-slate-800 mb-2">Tejas Sawant</h3>
+          <p class="text-indigo-600 font-medium mb-4">Co-Founder & CTO</p>
+          <p class="text-slate-600 mb-4">AI expert with 10+ years experience in recruitment technology and data science.</p>
+          <div class="flex justify-center space-x-4">
+            <a href="#" class="text-slate-500 hover:text-indigo-600">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="#" class="text-slate-500 hover:text-indigo-600">
+              <i class="bi bi-twitter"></i>
+            </a>
+            <a href="#" class="text-slate-500 hover:text-indigo-600">
+              <i class="bi bi-github"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Founder 2 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm text-center">
+          <div class="w-32 h-32 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-6 flex items-center justify-center text-white text-4xl font-bold">TS</div>
+          <h3 class="text-xl font-bold text-slate-800 mb-2">Tushar Sawant</h3>
+          <p class="text-indigo-600 font-medium mb-4">Founder & CEO</p>
+          <p class="text-slate-600 mb-4">Recruitment industry veteran with a passion for connecting talent with opportunity.</p>
+          <div class="flex justify-center space-x-4">
+            <a href="#" class="text-slate-500 hover:text-indigo-600">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="#" class="text-slate-500 hover:text-indigo-600">
+              <i class="bi bi-twitter"></i>
+            </a>
+            <a href="#" class="text-slate-500 hover:text-indigo-600">
+              <i class="bi bi-instagram"></i>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p>&copy; 2023 AI Cold Mailing Service. All rights reserved.</p>
+  <footer class="bg-slate-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center mb-4">
+            <div class="h-8 w-8 rounded-full bg-indigo-500 flex items-center justify-center text-white font-bold">TS</div>
+            <span class="ml-2 text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">TalentSync</span>
+          </div>
+          <p class="text-slate-400 mb-4">AI-powered outreach and job placement solutions for the modern workforce.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-slate-400 hover:text-white">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="#" class="text-slate-400 hover:text-white">
+              <i class="bi bi-twitter"></i>
+            </a>
+            <a href="#" class="text-slate-400 hover:text-white">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="#" class="text-slate-400 hover:text-white">
+              <i class="bi bi-instagram"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-4">Services</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-slate-400 hover:text-white">AI Cold Mailing</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white">Job Guarantee Program</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white">Recruitment Solutions</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white">Interview Coaching</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white">Resume Optimization</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-4">Company</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-slate-400 hover:text-white">About Us</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white">Careers</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white">Blog</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white">Press</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-4">Legal</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-slate-400 hover:text-white">Privacy Policy</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white">Terms of Service</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white">Cookie Policy</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white">GDPR</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-slate-500 mb-4 md:mb-0">© 2023 TalentSync. All rights reserved.</p>
+        <div class="flex space-x-6">
+          <a href="#" class="text-slate-500 hover:text-white">Privacy Policy</a>
+          <a href="#" class="text-slate-500 hover:text-white">Terms of Service</a>
+          <a href="#" class="text-slate-500 hover:text-white">Sitemap</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+      // You would typically toggle a mobile menu here
+      alert('Mobile menu would open here in a complete implementation');
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // Animation for pricing cards on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+        }
+      });
+    }, {threshold: 0.1});
+    
+    document.querySelectorAll('.pricing-card').forEach(card => {
+      observer.observe(card);
+    });
+  </script>
 </body>
 </html>
